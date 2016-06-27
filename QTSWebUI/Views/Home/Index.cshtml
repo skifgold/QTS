@@ -1,0 +1,54 @@
+﻿@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Home QTS</title>
+    <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1"/>
+    <link rel="shortcut icon" type="image/png" href="@Url.Content("~/Content/Images/interface (1).png")">
+    <link rel="stylesheet" href="@Url.Content("~/Content/home.css")">
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+</head>
+<body>
+<video id="bgvid" autoplay preload="auto" loop muted="muted">
+    <source src="@Url.Content("~/Content/Videos/BackgroundMovie.webm")" type="video/webm">
+</video>
+
+<div id="content">
+    <h1>Welcome to the Quick Ticket System</h1>
+    <p>Music Feelings Love</p>
+    <p>Enjoy</p>
+    <nav class="navbar navbar-inverse navbar-fixed-top noselect">
+        <div class="container-fluid" id="navContent">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+            </div>
+            <div class="collapse navbar-collapse" id="myNavbar">
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="../Account/Login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="container noselect">
+        <h1>Get It Now</h1>
+        <a href="#" class="store">
+            <img src="@Url.Content("~/Content/Images/AppStore.png") " alt=""/>
+        </a>
+        <a href="#" class="store">
+            <img src="@Url.Content("~/Content/Images/WindowsStore.png")" alt=""/>
+        </a>
+        <a href="#" class="store">
+            <img src="@Url.Content("~/Content/Images/GooglePlay.png")" alt=""/>
+        </a>
+    </div>
+</div>
+</body>
+</html>

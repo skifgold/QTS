@@ -1,0 +1,75 @@
+﻿@model IEnumerable<QTSDataManager.DB.Concert>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Concert's List</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create", null, new { @class = "btn btn-success btn-xs" })
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.PosterURL)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Address)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TypeOfPlace)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Date)
+        </th>
+        <th>
+            Groups
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            <div class="nailthumb-container square-thumb">
+                <img src="@Html.DisplayFor(modelItem => item.PosterURL)" />
+            </div>
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Address)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TypeOfPlace)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Date)
+        </td>
+        <td>
+            @Html.Raw(string.Join(", ", item.ConcertGroups.Select(x => x.MusicGroup.Name).Distinct()))
+        </td>
+        <td>
+            @Html.ActionLink("Add group", "AddGroup", new { concertId = item.Id }, new { @class = "btn btn-success btn-xs" })
+            @Html.ActionLink("Edit", "Edit", new {id = item.Id}, new {@class = "btn btn-warning btn-xs"})
+            @Html.ActionLink("Tickets", "Ticket", new {id = item.Id}, new {@class = "btn btn-primary btn-xs"})
+        </td>
+    </tr>
+}
+
+</table>
+
+@section scripts
+{
+    <script>
+        $(function () {
+            $('div.nailthumb-container > img').hide();
+            $('.nailthumb-container').nailthumb();
+        });
+    </script>
+}

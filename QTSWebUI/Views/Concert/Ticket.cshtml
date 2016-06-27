@@ -1,0 +1,61 @@
+﻿@using QTSDataManager.DB
+@model IEnumerable<QTSDataManager.DB.Ticket>
+
+@{
+    ViewBag.Title = "Ticket";
+}
+
+<h2>Ticket</h2>
+
+<p>
+    @Html.ActionLink("Create New", "CreateTicket", new {concertId = ViewBag.ConcertId }, new { @class = "btn btn-success btn-xs" })
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.TicketType)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Price)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Fan)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.HaveCustomerImg)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.TicketType)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Price)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Fan)
+        </td>
+        <td>
+            <img src=@Html.DisplayFor(modelItem => item.HaveCustomerImg) width="25" height="25"/>
+        </td>
+        <td>
+            @{
+                var firstOrDefault = item.Customers.FirstOrDefault(x => x.TicketId == item.Id);
+            }
+            @if (firstOrDefault != null && firstOrDefault.Status.ToString().Equals("Reserved"))
+            {
+                @Html.ActionLink("Unreserve", "Unreserve", new { customerId = firstOrDefault.Id, concertId = ViewBag.ConcertId }, new { @class = "btn btn-danger btn-xs" })
+            }
+
+            @Html.ActionLink("Edit", "TicketEdit", new { id = item.Id, concertId = item.ConcertId }, new { @class = "btn btn-warning btn-xs" })
+            @Html.ActionLink("Customer", "Customers", new { concertId = item.ConcertId, ticketType = item.TicketType, fan = item.Fan, ticketId = item.Id }, new { @class = "btn btn-primary btn-xs" })
+        </td>
+    </tr>
+}
+
+</table>
+
+@Html.ActionLink("Back to list", "Index", null, new { @class = "btn btn-default" })

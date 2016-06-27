@@ -1,0 +1,129 @@
+﻿<Page Name="Page"
+    x:Class="QTSPhoneApp.FanZonePage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:QTSPhoneApp"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Grid x:Name="LayoutRoot">
+
+        <Grid.ChildrenTransitions>
+            <TransitionCollection>
+                <EntranceThemeTransition/>
+            </TransitionCollection>
+        </Grid.ChildrenTransitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" MinHeight="140"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <!-- Title Panel -->
+        <StackPanel Grid.Row="0" Margin="10,10,0,0" DataContext="{Binding ElementName=Page}" Height="130" VerticalAlignment="Top">
+            <TextBlock Text="Quick Ticket System" Style="{ThemeResource TitleTextBlockStyle}" Margin="0,12,0,0"/>
+            <TextBlock Text="{Binding MyNavigationContext.Name}" Margin="0,-6.5,8.833,26.5" FontSize="33" Style="{ThemeResource HeaderTextBlockStyle}" CharacterSpacing="{ThemeResource PivotHeaderItemCharacterSpacing}" TextWrapping="WrapWholeWords" Height="96" />
+            <!--<TextBlock Text="{Binding MyNavigationContext.Id}" Margin="0,-6.5,0,26.5" Style="{ThemeResource HeaderTextBlockStyle}" CharacterSpacing="{ThemeResource PivotHeaderItemCharacterSpacing}"/>-->
+        </StackPanel>
+
+        <!--TODO: Content should be placed within the following grid-->
+        <Grid Grid.Row="1" x:Name="ContentRoot" Margin="19,10,19,-4">
+            <StackPanel  >
+                <ListView ItemClick="GoToZoneTickets" IsItemClickEnabled="True" DataContext="{Binding ElementName=Page }" ItemsSource="{Binding ZoneCollection}">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <Border BorderBrush="AliceBlue" BorderThickness="1 0 0 0" Margin="5, 10 ,0,0">
+                                <StackPanel Orientation="Vertical" Margin="10,0,0,0" >
+                                <Grid Height="141" Margin="10,10,0,0" RenderTransformOrigin="0.427,0.507" >
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="*" />
+                                        <RowDefinition Height="*" />
+                                        <RowDefinition Height="*"/>
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="*" />
+                                    </Grid.ColumnDefinitions>
+                                    <TextBlock Text="{Binding Fan}" 
+                    		                 FontSize="25"
+                                             Grid.Column="1"/>
+
+                                    <TextBlock Text="Zone Name:" 
+                		                FontSize="25"
+                                        Grid.Column="0"/>
+
+                                    <TextBlock Text="Price:"
+                        	            FontSize="20" 
+                                        Grid.Column="0" Grid.Row="1" />
+                                    <TextBlock Text="{Binding Price}" 
+                    		            Grid.Column="1" Grid.Row="1"
+                        	            FontSize="20" />
+                                    <TextBlock Text="Tickets:" Grid.Row="2" Grid.Column="0" FontSize="20"/>
+                                    <TextBlock Text="{Binding Count}" Grid.Row="2" Grid.Column="1" FontSize="20"/>
+                                </Grid>
+                            </StackPanel>
+                                </Border>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+
+
+
+                <!--<Grid Height="141" Margin="0,0,-0.333,0" RenderTransformOrigin="0.427,0.507" >
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Text="Fan 1" Height="34" Width="100" Margin="0,9,47.667,0"
+                    		HorizontalAlignment="Right"
+                    		VerticalAlignment="Top"
+                    		FontSize="25"
+                            Grid.Column="1"/>
+                    <TextBlock Text="100" Width="51" Margin="10,79,10,28.833"
+                    		HorizontalAlignment="Right"
+                    		
+                    		FontSize="15" RenderTransformOrigin="0.526,1.15"/>
+
+
+
+                    <TextBlock Text="Zone Name:" Height="50" Width="142" Margin="10,10,0,0"
+                		HorizontalAlignment="Left"
+                		VerticalAlignment="Top"
+                		FontSize="25"
+                         Grid.Column="0"/>
+                    
+                    <TextBlock Text="Price:" Height="50 " Margin="10,0,0,0"
+                        	VerticalAlignment="Top"
+                        	FontSize="20" HorizontalAlignment="Left" Width="62"
+                               Grid.Column="0" Grid.Row="1" />
+                    <TextBlock Text="100" Width="55" Margin="0,0,92.667,31.833"
+                        	HorizontalAlignment="Right"
+                    		Grid.Column="1" Grid.Row="1"
+                        	FontSize="15" Height="30" VerticalAlignment="Bottom" RenderTransformOrigin="0.526,1.15"/>
+                </Grid>-->
+
+
+                <!--<StackPanel Orientation="Vertical">
+                    <TextBlock Text="Zone Name" Height="50" Width="200" Margin="10,10,0,0"
+                                       HorizontalAlignment="Left"
+                                       VerticalAlignment="Top"
+                                       FontSize="25"/>
+                    <TextBlock Text="Price" Height="50 " Width="100" Margin=" 10,0,0,0"
+                                       HorizontalAlignment="Left"
+                                       VerticalAlignment="Top"
+                                       FontSize="20"/>
+                </StackPanel>-->
+
+
+
+            </StackPanel>
+        </Grid>
+    </Grid>
+</Page>

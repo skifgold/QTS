@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="bdb526c2c9bc4b26910086d95bd61133" Name="Diagram1">
+        <EntityTypeShape EntityType="qtsModel.Concert" Width="1.5" PointX="10.375" PointY="1.5" />
+        <EntityTypeShape EntityType="qtsModel.ConcertGroup" Width="1.5" PointX="8.375" PointY="1.25" />
+        <EntityTypeShape EntityType="qtsModel.Customer" Width="1.5" PointX="10.625" PointY="4.625" />
+        <EntityTypeShape EntityType="qtsModel.MusicGroup" Width="1.5" PointX="6.125" PointY="6.125" />
+        <EntityTypeShape EntityType="qtsModel.Ticket" Width="1.5" PointX="8.375" PointY="4.75" />
+        <AssociationConnector Association="qtsModel.FK_ConcertGroups_Concert" />
+        <AssociationConnector Association="qtsModel.FK_Ticket_Concert" />
+        <AssociationConnector Association="qtsModel.FK_ConcertGroups_MusicGroup" />
+        <AssociationConnector Association="qtsModel.FK_Customer_Ticket" />
+        <EntityTypeShape EntityType="qtsModel.sysdiagram" Width="1.5" PointX="0.75" PointY="0.75" />
+        <EntityTypeShape EntityType="qtsModel.Genre" Width="1.5" PointX="6.125" PointY="9.375" />
+        <EntityTypeShape EntityType="qtsModel.MusicGroupGenre" Width="1.5" PointX="8.375" PointY="8.25" />
+        <AssociationConnector Association="qtsModel.FK_MusicGroupGenre_Genre" />
+        <AssociationConnector Association="qtsModel.FK_MusicGroupGenre_Group" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

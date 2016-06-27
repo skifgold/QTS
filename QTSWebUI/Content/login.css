@@ -1,0 +1,143 @@
+﻿body { background: #eee }
+
+html, body {
+    height: 100%;
+    position: relative;
+}
+
+.login-container {
+    background: #fff;
+    border: 1px solid #ccc;
+    margin: 120px auto;
+    padding: 20px 40px 40px;
+    position: relative;
+    text-align: center;
+    width: 300px;
+}
+
+.login-container::before, .login-container::after {
+    -moz-transform: rotateZ(4deg);
+    -ms-transform: rotateZ(4deg);
+    -webkit-transform: rotateZ(4deg);
+    background: #fff;
+    border: 1px solid #ccc;
+    content: "";
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 3.5px;
+    width: 100%;
+    z-index: -1;
+}
+
+.login-container::after {
+    -moz-transform: rotateZ(-2deg);
+    -ms-transform: rotateZ(-2deg);
+    -webkit-transform: rotateZ(-2deg);
+    top: 5px;
+    z-index: -2;
+}
+
+.avatar {
+    background-image: url("Images/user.svg");
+    background-size: cover;
+    height: 100px;
+    margin: 10px auto 30px;
+    width: 100px;
+}
+
+.form-box input {
+    background: #fafafa;
+    border: 1px solid #ccc;
+    height: 40px;
+    padding: 10px;
+    text-align: center;
+    transition: 0.2s ease-in-out;
+    width: 100%;
+}
+
+::-webkit-input-placeholder { color: #cccccc; }
+
+::-moz-placeholder { color: #cccccc; }
+
+/* Firefox 19+ */
+
+:-moz-placeholder { color: #cccccc; }
+
+/* Firefox 18- */
+
+:-ms-input-placeholder { color: #cccccc; }
+
+.form-box input:focus {
+    background: #eee;
+    outline: 0;
+}
+
+.form-box input[type="text"] { border-radius: 5px 5px 0 0; }
+
+.form-box input[type="password"] {
+    border-radius: 0 0 5px 5px;
+    border-top: 0;
+}
+
+.form-box button.login {
+    margin-top: 15px;
+    padding: 10px 20px;
+}
+
+/* Validation */
+
+.validation-summary-errors {
+    background: rgb(228, 105, 105);
+    color: #fff;
+    left: 0;
+    position: absolute;
+    top: -100px;
+    width: 300px;
+}
+
+.validation-summary-errors > ul { text-align: left }
+
+.animated {
+    -webkit-animation-duration: 1s;
+    -webkit-animation-fill-mode: both;
+    animation-duration: 1s;
+    animation-fill-mode: both;
+}
+
+@-webkit-keyframes fade-in-up {
+    0% {
+        -webkit-transform: translateY(20px);
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    100% {
+        -webkit-transform: translateY(0);
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fade-in-up {
+    0% {
+        -ms-transform: translateY(20px);
+        -webkit-transform: translateY(20px);
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    100% {
+        -ms-transform: translateY(0);
+        -webkit-transform: translateY(0);
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.fade-in-up {
+    -webkit-animation-name: fade-in-up;
+    animation-name: fade-in-up;
+}
+
+.validation-summary-valid { display: none; }

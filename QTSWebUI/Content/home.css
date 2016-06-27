@@ -1,0 +1,119 @@
+html,body,h1,h2,h3,ul,li,a,p,
+article,aside,footer,header,main,nav,section{
+	padding:0;
+	margin:0;
+}
+
+div.container-fluid{
+	padding: 0px; 
+	margin: 0px;
+}
+
+nav.navbar-inverse {
+	background-color:rgba(0, 0, 0, 0.7);
+	border-bottom:0.5px solid rgb(51, 51, 51); 
+	margin-bottom: 0;
+    min-height:20px !important;
+}
+
+.navbar-nav > li > a {padding-top:5px !important; padding-bottom:5px !important;}
+
+#navContent {
+    margin: 0px 5%;
+}
+
+#content {
+	position: absolute;
+	width: 100%;
+	min-height: 100%;
+	z-index: 1000; /*always top*/
+	background-size: cover;
+	background-color: rgba(0, 0, 0, 0.5);
+	display: block;
+	text-align: center;
+}
+#content h1 {
+	font-size: 300%;
+	text-transform: uppercase;
+	font-weight: 300;
+	color: #fff;
+	padding-top: 10%;
+	padding-bottom: 10px;
+    letter-spacing: 5px;
+}
+
+#content p {
+	letter-spacing: 3px;
+	font-size: 150%;
+	color: #aaa;
+}
+
+#content a.store {
+    text-decoration: none;
+}
+
+#content a.store:hover {
+    text-decoration: none;
+}
+
+#content a.store > img{
+	width: 10%;
+	height: 10%;
+    margin: 0% 5%;
+}
+ 
+ video#bgvid { 
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    z-index: -100;
+    -ms-transform: translateX(-50%) translateY(-50%);
+    -moz-transform: translateX(-50%) translateY(-50%);
+    -webkit-transform: translateX(-50%) translateY(-50%);
+    transform: translateX(-50%) translateY(-50%);
+    background-size: cover; 
+	border: 0;
+}
+
+@media only screen and (max-device-width: 800px){
+    html {
+         background: url("https://storiesfromthesouthernhemisphere.files.wordpress.com/2013/01/dsc_0560.jpg") #000 no-repeat center center fixed;
+    }
+    #bgvid {
+        display: none;
+    }
+}
+
+.login {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    
+    color: white;
+    font-size: 14px;
+}
+
+.login:hover {
+     color: white;
+}
+
+.noselect {
+  -webkit-touch-callout: none; /* iOS Safari */
+  -webkit-user-select: none;   /* Chrome/Safari/Opera */
+  -khtml-user-select: none;    /* Konqueror */
+  -moz-user-select: none;      /* Firefox */
+  -ms-user-select: none;       /* IE/Edge */
+  user-select: none;           /* non-prefixed version, currently
+                                  not supported by any browser */
+}
+
+::selection {
+  background: #ffb7b7; /* WebKit/Blink Browsers */
+}
+::-moz-selection {
+  background: #ffb7b7; /* Gecko Browsers */
+}

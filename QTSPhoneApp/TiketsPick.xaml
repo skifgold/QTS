@@ -1,0 +1,75 @@
+﻿<Page
+    Name="Page"
+    x:Class="QTSPhoneApp.TiketsPick"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:QTSPhoneApp"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    DataContext="{Binding ElementName=Page}" 
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    <Page.BottomAppBar>
+        <CommandBar>
+            <AppBarButton Icon="BlockContact" Label="Reserve " Click="Reserve_OnClick" />
+            <AppBarButton Icon="AddFriend" Label="Buy Tikcets" Click="Buy_OnClick"/>
+        </CommandBar>
+    </Page.BottomAppBar>
+
+
+    <Grid x:Name="LayoutRoot">
+
+      
+        <Grid Grid.Row="1" Margin="35" >
+          <Grid.RowDefinitions>
+              <RowDefinition Height="*" />
+              <RowDefinition Height="*"/>
+              <RowDefinition Height="*"/>
+              <RowDefinition Height="*"/>
+          </Grid.RowDefinitions>
+          <Grid.ColumnDefinitions>
+              <ColumnDefinition Width="*"/>
+              <ColumnDefinition Width="1.6*"/>
+            </Grid.ColumnDefinitions>  
+            
+            
+            <TextBlock Grid.Row="0" Grid.Column="0"
+                       Text="Tickets Left:"
+                       HorizontalAlignment="Stretch"
+                       VerticalAlignment="Center"
+                       TextAlignment="Center"
+                       FontSize="20"/>
+            
+            <TextBlock Grid.Row="0" Grid.Column="1"
+                       TextAlignment="Center"
+                       x:Name="LeftTicketsBlock"
+                       Text="{Binding Mode=TwoWay}"
+                       HorizontalAlignment="Stretch"
+                       VerticalAlignment="Center"
+                       FontSize="30"/>
+
+
+            <TextBlock Grid.Row="2" Grid.Column="1" TextAlignment="Center"  VerticalAlignment="Center" x:Name="Countblock" FontSize="30" Text="{Binding ElementName=ticketSlider, Path=Value}"  />
+            <Slider Grid.Row="1" ValueChanged="TicketSlider_OnValueChanged" HorizontalAlignment="Stretch" x:Name="ticketSlider" Minimum="1" Maximum="{Binding}" VerticalAlignment="Center" Height="57"  Grid.ColumnSpan="2" />
+            <TextBlock Grid.Row="3" Grid.Column="1" FontSize="30" TextAlignment="Center" Text="{Binding}" x:Name="MoneyBlock" Height="30"   />
+
+
+            <TextBlock Grid.Row="2" Grid.Column="0"
+                       Text="How much tickets ?"
+                       TextWrapping="WrapWholeWords"
+                       HorizontalAlignment="Stretch"
+                       VerticalAlignment="Center"
+                       TextAlignment="Center"
+                       FontSize="20"/>
+
+
+            <TextBlock Grid.Row="3" Grid.Column="0"
+                       Text="Your price:"
+                       HorizontalAlignment="Stretch"
+                       VerticalAlignment="Center"
+                       TextAlignment="Center"
+                       FontSize="20"/>
+
+        </Grid>
+       </Grid>
+</Page>
